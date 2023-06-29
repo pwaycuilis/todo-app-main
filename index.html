@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Frontend Mentor | Todo app</title>
+
+</head>
+<body data-theme="night">
+
+  <header class="flex-container" data-theme="night">
+
+    <h1>TODO</h1>
+    <button class="theme-icon active" data-theme="night"></button>
+
+  </header>
+  
+  <main>
+    <div class="input-container display-container flex-container" data-theme="night">
+        <input type="radio" id="todo-input-button" class="active">
+        <input type="text" class="todo-text-input" placeholder="Create a new todo..." id="todo-input" data-theme="night">
+    </div>
+
+    <div class="todos-container">
+      
+    </div>
+    <div class="display-container flex-container todos-footer" data-theme="night">
+      <div class="items-left flex-container">
+        <div class="items-counter">0 </div>
+        <span> items left</span>
+      </div>
+  
+      <button class="clear-completed active">Clear Completed</button>
+    </div>
+    
+    <div class="filter-buttons-container display-container flex-container" data-theme="night">
+      <button class="filter-button filter-button-all active" data-selected="true">All</button>
+      <button class="filter-button filter-button-active active" data-selected="false">Active</button>
+      <button class="filter-button filter-button-completed active" data-selected="false">Completed</button>
+    </div>
+    
+    <div class="tooltip" data-theme="night">Drag and drop to reorder list</div>
+
+    
+  </main>
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>

@@ -1,0 +1,536 @@
+/* css reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+
+
+:root {
+    --clr-primary-400: hsl(220, 98%, 61%);
+    --clr-primary-gradient: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+
+    --clr-light-100: hsl(0, 0%, 98%);
+    --clr-light-200: hsl(236, 33%, 92%);
+    --clr-light-300: hsl(233, 11%, 84%);
+    --clr-light-500: hsl(236, 9%, 61%);
+    --clr-light-700: hsl(235, 19%, 35%);
+
+    --clr-dark-900: hsl(235, 21%, 11%);
+    --clr-dark-800: hsl(235, 24%, 19%);
+    --clr-dark-200: hsl(234, 39%, 85%);
+    --clr-dark-hover: hsl(236, 33%, 92%);
+    --clr-dark-400: hsl(234, 11%, 52%);
+    --clr-dark-500: hsl(233, 14%, 35%);
+
+    --clr-dark-600: hsl(237, 14%, 26%);
+
+    --ff-primary: 'Josefin Sans', sans-serif;
+    --fw-400: 400;
+    --fw-700: 700;
+
+    --fs-primary: 1.125rem;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-repeat: no-repeat;
+
+  background-size: 100% auto;
+
+  font-family: var(--ff-primary);
+  font-size: var(--fs-primary);
+
+}
+
+body[data-theme="night"] {
+  background-image: url(./images/bg-mobile-dark.jpg);
+  background-color: var(--clr-dark-900);
+  color: var(--clr-dark-200);
+
+}
+
+body[data-theme="day"] {
+  background-image: url(./images/bg-mobile-light.jpg);
+  background-color: var(--clr-light-200);
+}
+
+header {
+    width: 80%;
+    max-width: 18em;
+    margin: auto;
+    justify-content: space-between;
+
+    margin-top: 2.5rem;
+}
+
+header[data-theme="night"] {
+  color: var(--clr-dark-100);
+
+}
+
+header[data-theme="day"] {
+  color: var(--clr-light-100);
+}
+/* header */
+h1 {
+  letter-spacing: 0.5rem;
+  /* font-size: 150%; */
+}
+
+main {
+
+  width: 87%;
+  margin: auto;
+  position: absolute;
+  top: 7.5rem;
+  max-width: 18em;
+
+}
+
+.flex-container {
+    display: flex;
+}
+
+.active {
+  cursor: pointer;
+}
+
+
+.theme-icon {
+    width: 3rem;
+    height: 3rem;
+    /* background-image: url(./images/icon-sun.svg); */
+    background-repeat: no-repeat;
+    background-position: top 0.75rem right 0rem;
+}
+
+.theme-icon[data-theme="night"] {
+  background-image: url(./images/icon-sun.svg);
+}
+
+.theme-icon[data-theme="day"] {
+  background-image: url(./images/icon-moon.svg);
+}
+
+button.theme-icon {
+  background-color: transparent;
+  border: none;
+}
+
+
+.todos-container {
+  display: grid;
+
+}
+
+.display-container {
+  padding: 0.5rem;
+  /* border-radius: 0.5rem; */
+  border-radius: 0.25rem;
+  font-size: 60%;
+
+  min-height: 3rem;
+
+
+}
+
+.display-container[data-theme="night"] {
+  background-color: var(--clr-dark-800);
+}
+
+.display-container[data-theme="day"] {
+  background-color: var(--clr-light-100);
+}
+
+.display-container[data-theme="day"]>#todo-input-button {
+
+  border-color: var(--clr-light-300);
+}
+
+.input-container {
+  margin-bottom: 1rem;
+
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    top: 0;
+    right: 0;
+}
+
+input[type="radio"] {
+
+    height: 20px;
+    width: 20px;
+    /* background-color: black; */
+    background-color: transparent;
+    border: 1px solid var(--clr-dark-600);
+    border-radius: 50%;
+    appearance: none;
+    margin-top: 0.2rem;
+    margin-left: 0.7rem;
+
+    /* border-color: var(--clr-dark-500); */
+
+    /* opacity: 0; */
+}
+
+.todo-text-input {
+  min-width: 12rem;
+}
+
+input[type="text"] {
+    margin-left: 1rem;
+    color: var(--clr-dark-400);
+    font-size: 90%;
+}
+
+input[type=text]:focus {
+
+    outline: none;
+
+}
+
+
+
+
+input[type=text][data-theme="night"]:focus {
+  color: var(--clr-dark-hover);
+}
+
+.icon-check {
+    width: 2rem;
+    height: 2rem;
+    background-image: url(./images/icon-check.svg);
+    background-repeat: no-repeat;
+    /* background-position: top 0.5rem left 0.5rem; */
+}
+
+.todos-container {
+  flex-shrink: initial;
+}
+
+
+
+.new-todo-container {
+  /* min-height: 3rem; */
+  border-top: 1px solid;
+  border-radius: 0;
+  display: flex;
+
+}
+
+.new-todo-container[data-theme="night"] {
+  color: var(--clr-dark-200);
+
+  border-color: var(--clr-dark-600);
+}
+
+.new-todo-container[data-theme="day"] {
+  color: var(--clr-light-700);
+  border-color: var(--clr-light-300)
+}
+
+.new-todo-container[data-visible="false"] {
+  display: none;
+}
+
+.new-todo-container:nth-child(1) {
+  border: none;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.draggable {
+  cursor: move;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
+
+/* .checkbox {
+
+} */
+
+.checkbox[data-checked="true"] {
+    
+
+    background-image: var(--clr-primary-gradient);
+
+    background-repeat: no-repeat;
+
+    
+    
+}
+
+.checkbox[data-theme="day"] {
+  border-color: var(--clr-light-300);
+}
+
+.checkmark {
+  width: 1rem;
+  height: 1rem;
+
+}
+
+.checkbox[data-checked="true"]>.checkmark {
+  background-image: url(./images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: top 0.25rem left 0.25rem;
+
+}
+
+.todo-text {
+  display: flex;
+  margin-left: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox[data-checked="true"]~.todo-text {
+  text-decoration: line-through;
+
+
+}
+
+.checkbox[data-checked="true"][data-theme="night"]~.todo-text {
+  color: var(--clr-dark-400);
+}
+
+.checkbox[data-checked="true"][data-theme="day"]~.todo-text {
+  color: var(--clr-light-300);
+}
+
+
+
+
+
+
+.remove-todo-button {
+    width: 2rem;
+    height: 2rem;
+    background-image: url(./images/icon-cross.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    /* background-color: black; */
+    background-position: center;
+    border: none;
+    position: absolute;
+    right: 1rem;
+    /* bottom: 1rem; */
+}
+
+.todos-footer {
+  justify-content: space-between;
+
+
+  border-top: 1px solid;
+  border-radius: 0 0 0.25rem 0.25rem;
+
+
+}
+
+.todos-footer[data-theme="night"] {
+  color: var(--clr-dark-400);
+  border-color: var(--clr-dark-600);
+}
+
+.todos-footer[data-theme="day"] {
+  color: var(--clr-light-500);
+  border-color: var(--clr-light-300);
+}
+
+.items-left {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin-left: 0.75rem;
+}
+
+.items-counter {
+  margin-right: 0.5rem;
+}
+
+.clear-completed {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  margin-right: 0.5rem;
+}
+
+.filter-buttons-container {
+
+  justify-content: center;
+
+  font-size: 80%;
+  margin-top: 1rem;
+}
+
+.filter-buttons-container[data-theme="night"] {
+  color: var(--clr-dark-400);
+}
+
+.filter-buttons-container[data-theme="day"] {
+  color: var(--clr-light-500);
+}
+
+
+
+.filter-button {
+  background-color: transparent;
+  /* font-size: 80%; */
+  font-weight: var(--fw-700);
+  border: none;
+  color: inherit;
+  margin: 0.5rem;
+}
+
+.filter-button[data-selected="true"] {
+  color: var(--clr-primary-400);
+}
+
+.tooltip {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.tooltip[data-theme="day"] {
+  color: var(--clr-light-500);
+}
+
+.tooltip[data-theme="night"] {
+  color: var(--clr-dark-400);
+}
+
+
+@media (min-width: 45.625em) {
+ 
+
+  body {
+    background-repeat: no-repeat;
+    background-size: 100% 41%;
+  }
+
+  body[data-theme="night"] {
+
+    background-image: url(./images/bg-desktop-dark.jpg);
+
+  }
+
+  body[data-theme="day"] {
+    background-image: url(./images/bg-desktop-light.jpg);
+  }
+
+  header {
+    width: 33rem;
+    /* width: 40%; */
+    max-width: none;
+  }
+  main {
+    /* width: 37.5%; */
+    width: 33rem;
+    /* min-width: 18em; */
+    max-width: none;
+
+  }
+
+
+  .display-container {
+    height: 4rem;
+    font-size: 100%;
+    align-items: center;
+  }
+
+
+  .input-container {
+    margin-bottom: 1.5rem;
+    font-size: 100%;
+    /* justify-content: center; */
+  }
+
+  .todo-text-input {
+    margin-top: 0.25rem;
+  }
+
+  .todo-text {
+    margin-top: 0.5rem;
+  }
+
+  .items-left {
+    font-size: 75%;
+  }
+
+  .clear-completed {
+    font-size: 75%;
+  }
+
+  .filter-buttons-container {
+    width: 40%;
+    margin: auto;
+    margin-top: -3.95rem;
+    font-size: 75%;
+    height: 3.95rem;
+  }
+
+
+  .filter-button {
+    margin: 0.4rem;
+  }
+}
+
+
+
